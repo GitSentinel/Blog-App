@@ -13,8 +13,10 @@ class myApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          fontFamily: 'Urbanist',
-          scaffoldBackgroundColor: AppColors.background),
+        fontFamily: 'Urbanist',
+        scaffoldBackgroundColor: AppColors.background,
+        brightness: Brightness.dark,
+      ),
       initialRoute: '/',
       routes: {
         '/': (context) => LoginPage(),
