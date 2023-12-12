@@ -1,4 +1,6 @@
+import 'package:create_app/pages/home_page.dart';
 import 'package:create_app/pages/login_page.dart';
+import 'package:create_app/pages/main_page.dart';
 import 'package:create_app/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +15,12 @@ class myApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: 'Urbanist',
           scaffoldBackgroundColor: AppColors.background),
-      home: LoginPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => LoginPage(),
+        '/home': (context) => HomePage(),
+        '/main': (context) => MainPage(),
+      },
     );
   }
 }

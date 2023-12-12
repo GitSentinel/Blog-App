@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:create_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -75,7 +76,7 @@ class LoginPage extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      print('Login is Clicked');
+                      Navigator.of(context).pushReplacementNamed('/main');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.amber,
