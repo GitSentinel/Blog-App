@@ -15,7 +15,7 @@ class PostItem extends StatelessWidget {
           Row(
             children: [
               Image.asset(
-                'assets/temp/user1.png',
+                'assets/temp/user1.jpg',
                 width: 40,
                 height: 40,
               ),

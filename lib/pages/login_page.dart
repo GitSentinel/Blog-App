@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:create_app/pages/home_page.dart';
+import 'package:create_app/components/app_text_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -35,27 +35,11 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Username',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12))),
-                    filled: true,
-                    fillColor: Colors.white.withOpacity(0.5),
-                  ),
-                ),
+                AppTextField(hint: 'Username'),
                 SizedBox(
                   height: 16,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Password',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12))),
-                    filled: true,
-                    fillColor: Colors.white.withOpacity(0.5),
-                  ),
-                ),
+                AppTextField(hint: 'Password'),
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
