@@ -25,4 +25,9 @@ class AppStrings {
   static const phoneNumber = 'Phone Number';
   static const location = 'Location';
   static const logOut = 'Log Out';
+  static const birthday = 'Birthday';
+  static const male = 'Male';
+  static const female = 'Female';
+  static const other = 'Other';
+  static const gender = 'Gender';
 }

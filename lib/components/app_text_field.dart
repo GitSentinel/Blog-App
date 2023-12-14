@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:create_app/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTextField extends StatelessWidget {
@@ -9,10 +12,23 @@ class AppTextField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         hintText: hint,
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(12))),
+        labelText: hint,
+        labelStyle: TextStyle(
+          color: AppColors.white,
+        ),
+        border: const UnderlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(12),
+          ),
+        ),
+        focusedBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.transparent),
+          borderRadius: BorderRadius.all(
+            Radius.circular(12),
+          ),
+        ),
         filled: true,
-        fillColor: Colors.white.withOpacity(0.5),
+        fillColor: AppColors.fieldColor,
       ),
     );
   }

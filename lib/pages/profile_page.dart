@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last
 
 import 'package:create_app/components/toolbar.dart';
+import 'package:create_app/components/user_avatar.dart';
 import 'package:create_app/config/app_routes.dart';
 import 'package:create_app/config/app_strings.dart';
 import 'package:create_app/styles/app_text.dart';
@@ -62,13 +63,8 @@ class ProfilePage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(16)),
-            child: Image.asset(
-              'assets/temp/user1.jpg',
-              width: 90,
-              height: 90,
-            ),
+          UserAvatar(
+            size: 90,
           ),
           SizedBox(
             height: 24,
