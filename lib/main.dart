@@ -1,7 +1,6 @@
-import 'package:create_app/pages/edit_profile_page.dart';
-import 'package:create_app/pages/home_page.dart';
-import 'package:create_app/pages/login_page.dart';
-import 'package:create_app/pages/main_page.dart';
+// ignore_for_file: camel_case_types
+
+import 'package:create_app/config/app_routes.dart';
 import 'package:create_app/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +9,8 @@ void main() {
 }
 
 class myApp extends StatelessWidget {
+  const myApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,13 +19,8 @@ class myApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.background,
         brightness: Brightness.dark,
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => LoginPage(),
-        '/home': (context) => HomePage(),
-        '/main': (context) => MainPage(),
-        '/edit-profile': (context) => EditProfilePage(),
-      },
+      initialRoute: AppRoutes.login,
+      routes: AppRoutes.pages,
     );
   }
 }

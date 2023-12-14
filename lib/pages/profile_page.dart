@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last
 
 import 'package:create_app/components/toolbar.dart';
+import 'package:create_app/config/app_routes.dart';
+import 'package:create_app/config/app_strings.dart';
 import 'package:create_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 
@@ -13,13 +15,13 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Toolbar(
-        title: 'Profile',
+        title: AppStrings.profile,
         actions: [
-          PopupMenuButton(
+          PopupMenuButton<ProfileMenu>(
             onSelected: (value) {
               switch (value) {
                 case ProfileMenu.editProfile:
-                  Navigator.of(context).pushNamed('/edit-profile');
+                  Navigator.of(context).pushNamed(AppRoutes.editProfile);
                   break;
                 case ProfileMenu.logOut:
                   print('Log Out');
@@ -36,7 +38,7 @@ class ProfilePage extends StatelessWidget {
                       SizedBox(
                         width: 8,
                       ),
-                      Text('Edit Profile'),
+                      Text(AppStrings.editProfile),
                     ],
                   ),
                   value: ProfileMenu.editProfile,
@@ -48,7 +50,7 @@ class ProfilePage extends StatelessWidget {
                       SizedBox(
                         width: 8,
                       ),
-                      Text('Log Out'),
+                      Text(AppStrings.logOut),
                     ],
                   ),
                   value: ProfileMenu.logOut,
@@ -89,7 +91,7 @@ class ProfilePage extends StatelessWidget {
                     style: AppText.header2,
                   ),
                   Text(
-                    'Followers',
+                    AppStrings.followers,
                     style: AppText.subtitle2,
                   ),
                 ],
@@ -101,7 +103,7 @@ class ProfilePage extends StatelessWidget {
                     style: AppText.header2,
                   ),
                   Text(
-                    'Posts',
+                    AppStrings.posts,
                     style: AppText.subtitle2,
                   ),
                 ],
@@ -113,7 +115,7 @@ class ProfilePage extends StatelessWidget {
                     style: AppText.header2,
                   ),
                   Text(
-                    'Following',
+                    AppStrings.following,
                     style: AppText.subtitle2,
                   ),
                 ],

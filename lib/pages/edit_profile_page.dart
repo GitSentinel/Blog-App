@@ -2,6 +2,7 @@
 
 import 'package:create_app/components/app_text_field.dart';
 import 'package:create_app/components/toolbar.dart';
+import 'package:create_app/config/app_strings.dart';
 import 'package:flutter/material.dart';
 
 class EditProfilePage extends StatelessWidget {
@@ -11,14 +12,14 @@ class EditProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Toolbar(
-        title: 'Edit Profile',
+        title: AppStrings.editProfile,
       ),
       body: Column(
         children: [
-          AppTextField(hint: 'First Name'),
-          AppTextField(hint: 'Last Name'),
-          AppTextField(hint: 'Phone Number'),
-          AppTextField(hint: 'Location'),
+          AppTextField(hint: AppStrings.firstName),
+          AppTextField(hint: AppStrings.lastName),
+          AppTextField(hint: AppStrings.phoneNumber),
+          AppTextField(hint: AppStrings.location),
         ],
       ),
     );

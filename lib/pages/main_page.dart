@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:create_app/config/app_icons.dart';
+import 'package:create_app/config/app_strings.dart';
 import 'package:create_app/pages/home_page.dart';
 import 'package:create_app/pages/profile_page.dart';
 import 'package:flutter/material.dart';
@@ -21,24 +23,24 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/svg/home.svg'),
-            label: 'Home',
+            icon: SvgPicture.asset(AppIcons.home),
+            label: AppStrings.home,
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/svg/favorite.svg'),
-            label: 'Favorite',
+            icon: SvgPicture.asset(AppIcons.favorite),
+            label: AppStrings.favorites,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            label: 'Add Post',
+            icon: SvgPicture.asset(AppIcons.add),
+            label: AppStrings.add,
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/svg/chat.svg'),
-            label: 'Chat',
+            icon: SvgPicture.asset(AppIcons.chat),
+            label: AppStrings.chat,
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/svg/profile.svg'),
-            label: 'Profile',
+            icon: SvgPicture.asset(AppIcons.profile),
+            label: AppStrings.profile,
           ),
         ],
         currentIndex: currentIndex,
@@ -58,13 +60,13 @@ class _MainPageState extends State<MainPage> {
   final pages = [
     HomePage(),
     Center(
-      child: Text('Favorite'),
+      child: Text(AppStrings.favorites),
     ),
     Center(
-      child: Text('Add Post'),
+      child: Text(AppStrings.add),
     ),
     Center(
-      child: Text('Message'),
+      child: Text(AppStrings.chat),
     ),
     ProfilePage(),
   ];
