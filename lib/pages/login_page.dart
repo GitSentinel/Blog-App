@@ -9,7 +9,7 @@ import 'package:create_app/config/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-const baseUrl = 'http://localhost:8080';
+const baseUrl = 'http://10.0.2.2:8080';
 
 class LoginPage extends StatelessWidget {
   final loginRoute = '$baseUrl/login';
@@ -238,7 +238,7 @@ class LoginPage extends StatelessWidget {
       body: jsonEncode(body),
     );
     if (response.statusCode == 200) {
-      print(response.body);
+      // print(response.body);
       return response.body;
     } else {
       print('Login Failed');
