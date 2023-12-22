@@ -3,12 +3,10 @@
 import 'package:create_app/components/app_text_field.dart';
 import 'package:create_app/components/toolbar.dart';
 import 'package:create_app/components/user_avatar.dart';
-import 'package:create_app/config/app_icons.dart';
 import 'package:create_app/config/app_strings.dart';
 import 'package:create_app/styles/app_colors.dart';
 import 'package:create_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 enum Gender {
   none,

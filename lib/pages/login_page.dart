@@ -1,22 +1,13 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'dart:convert';
-
-import 'package:create_app/components/app_text_field.dart';
 import 'package:create_app/config/app_icons.dart';
 import 'package:create_app/config/app_routes.dart';
 import 'package:create_app/config/app_strings.dart';
-import 'package:create_app/model/user.dart';
-import 'package:create_app/pages/main_page.dart';
+import 'package:create_app/provider/app_repo.dart';
+import 'package:create_app/provider/login_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-
-const baseUrl = 'http://10.0.2.2:8080';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
-  final loginRoute = '$baseUrl/login';
-  var username = '';
-  var password = '';
   LoginPage({super.key});
 
   @override
@@ -50,7 +41,8 @@ class LoginPage extends StatelessWidget {
                 Spacer(),
                 TextField(
                   onChanged: (value) {
-                    username = value;
+                    Provider.of<LoginProvider>(context, listen: false)
+                        .username = value;
                   },
                   decoration: InputDecoration(
                       hintText: AppStrings.username,
@@ -67,7 +59,8 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextField(
                   onChanged: (value) {
-                    password = value;
+                    Provider.of<LoginProvider>(context, listen: false)
+                        .password = value;
                   },
                   decoration: InputDecoration(
                       hintText: AppStrings.password,
@@ -98,14 +91,18 @@ class LoginPage extends StatelessWidget {
                   height: 48,
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () async {
-                      final user = await doLogin();
-                      Navigator.of(context).push(PageRouteBuilder(pageBuilder:
-                          (context, animation, secondaryAnimation) {
-                        return MainPage(
-                          user: user,
+                    onPressed: () {
+                      Provider.of<LoginProvider>(context, listen: false)
+                          .login()
+                          .then((value) {
+                        Provider.of<AppRepo>(context, listen: false).user =
+                            value.user;
+                        Provider.of<AppRepo>(context, listen: false).token =
+                            value.token;
+                        Navigator.of(context).pushReplacementNamed(
+                          AppRoutes.main,
                         );
-                      }));
+                      });
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.amber,
@@ -234,25 +231,5 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<User> doLogin() async {
-    final body = {
-      'username': username,
-      'password': password,
-    };
-    final response = await http.post(
-      Uri.parse(loginRoute),
-      body: jsonEncode(body),
-    );
-    if (response.statusCode == 200) {
-      print(response.body);
-      final json = jsonDecode(response.body);
-      final user = User.fromJson(json['data']);
-      return user;
-    } else {
-      print('Login Failed');
-      throw Exception('Error');
-    }
   }
 }

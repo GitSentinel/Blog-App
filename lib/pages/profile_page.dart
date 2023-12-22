@@ -4,20 +4,19 @@ import 'package:create_app/components/toolbar.dart';
 import 'package:create_app/components/user_avatar.dart';
 import 'package:create_app/config/app_routes.dart';
 import 'package:create_app/config/app_strings.dart';
-import 'package:create_app/model/user.dart';
+import 'package:create_app/provider/app_repo.dart';
 import 'package:create_app/styles/app_text.dart';
-import 'package:create_app/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 enum ProfileMenu { editProfile, logOut }
 
 class ProfilePage extends StatelessWidget {
-  final User user;
-  const ProfilePage({super.key, required this.user});
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final user = UserProvider.of(context);
+    final user = Provider.of<AppRepo>(context).user;
     return Scaffold(
       appBar: Toolbar(
         title: AppStrings.profile,
