@@ -3,6 +3,7 @@
 import 'package:create_app/components/bottom_navigation_item.dart';
 import 'package:create_app/config/app_icons.dart';
 import 'package:create_app/config/app_strings.dart';
+import 'package:create_app/model/user.dart';
 import 'package:create_app/pages/home_page.dart';
 import 'package:create_app/pages/profile_page.dart';
 import 'package:create_app/styles/app_colors.dart';
@@ -10,7 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+  final User user;
+  const MainPage({super.key, required this.user});
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -22,7 +24,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: pages[currentIndex.index],
+      body: pages()[currentIndex.index],
       bottomNavigationBar: MyBottonNavigation(
         currentIndex: currentIndex,
         onTap: (value) {
@@ -36,19 +38,21 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  final pages = [
-    HomePage(),
-    Center(
-      child: Text(AppStrings.favorites),
-    ),
-    Center(
-      child: Text(AppStrings.add),
-    ),
-    Center(
-      child: Text(AppStrings.chat),
-    ),
-    ProfilePage(),
-  ];
+  pages() => [
+        HomePage(),
+        Center(
+          child: Text(AppStrings.favorites),
+        ),
+        Center(
+          child: Text(AppStrings.add),
+        ),
+        Center(
+          child: Text(AppStrings.chat),
+        ),
+        ProfilePage(
+          user: widget.user,
+        ),
+      ];
 }
 
 enum Menus {

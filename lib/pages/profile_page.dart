@@ -4,16 +4,20 @@ import 'package:create_app/components/toolbar.dart';
 import 'package:create_app/components/user_avatar.dart';
 import 'package:create_app/config/app_routes.dart';
 import 'package:create_app/config/app_strings.dart';
+import 'package:create_app/model/user.dart';
 import 'package:create_app/styles/app_text.dart';
+import 'package:create_app/user_provider.dart';
 import 'package:flutter/material.dart';
 
 enum ProfileMenu { editProfile, logOut }
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  final User user;
+  const ProfilePage({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
+    final user = UserProvider.of(context);
     return Scaffold(
       appBar: Toolbar(
         title: AppStrings.profile,
@@ -70,7 +74,7 @@ class ProfilePage extends StatelessWidget {
             height: 24,
           ),
           Text(
-            'Oliver Cristofer',
+            '${user?.firstname} ${user?.lastname}}',
             style: AppText.header2,
           ),
           Text(
