@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:create_app/config/app_config.dart';
 import 'package:create_app/data/model/post.dart';
 import 'package:create_app/styles/app_text.dart';
@@ -30,10 +32,12 @@ class PostItem extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height: 24,
-          ),
-          Image.network('${AppConfig.baseUrl}${post.image}'),
+          if (post.image != null) ...[
+            SizedBox(
+              height: 24,
+            ),
+            Image.network('${AppConfig.baseUrl}${post.image}'),
+          ],
           SizedBox(
             height: 12,
           ),

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:create_app/components/bottom_navigation_item.dart';
+import 'package:create_app/components/new_post_model.dart';
 import 'package:create_app/config/app_icons.dart';
 import 'package:create_app/config/app_strings.dart';
 import 'package:create_app/pages/home_page.dart';
@@ -26,6 +27,17 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: MyBottonNavigation(
         currentIndex: currentIndex,
         onTap: (value) {
+          if (value == Menus.add) {
+            showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              builder: (context) {
+                return NewPostModel();
+              },
+            );
+            return;
+          }
           setState(
             () {
               currentIndex = value;
