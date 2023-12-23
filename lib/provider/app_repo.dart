@@ -1,4 +1,4 @@
-import 'package:create_app/model/user.dart';
+import 'package:create_app/data/model/user.dart';
 import 'package:flutter/material.dart';
 
 class AppRepo extends ChangeNotifier {

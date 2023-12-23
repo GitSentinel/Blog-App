@@ -41,8 +41,7 @@ class LoginPage extends StatelessWidget {
                 Spacer(),
                 TextField(
                   onChanged: (value) {
-                    Provider.of<LoginProvider>(context, listen: false)
-                        .username = value;
+                    context.read<LoginProvider>().username = value;
                   },
                   decoration: InputDecoration(
                       hintText: AppStrings.username,
@@ -59,8 +58,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextField(
                   onChanged: (value) {
-                    Provider.of<LoginProvider>(context, listen: false)
-                        .password = value;
+                    context.read<LoginProvider>().password = value;
                   },
                   decoration: InputDecoration(
                       hintText: AppStrings.password,
@@ -92,13 +90,9 @@ class LoginPage extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Provider.of<LoginProvider>(context, listen: false)
-                          .login()
-                          .then((value) {
-                        Provider.of<AppRepo>(context, listen: false).user =
-                            value.user;
-                        Provider.of<AppRepo>(context, listen: false).token =
-                            value.token;
+                      context.read<LoginProvider>().login().then((value) {
+                        context.read<AppRepo>().user = value.user;
+                        context.read<AppRepo>().token = value.token;
                         Navigator.of(context).pushReplacementNamed(
                           AppRoutes.main,
                         );

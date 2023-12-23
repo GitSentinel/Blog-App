@@ -1,4 +1,4 @@
-import 'package:create_app/model/user.dart';
+import 'package:create_app/data/model/user.dart';
 
 class LoginResponse {
   final User user;
