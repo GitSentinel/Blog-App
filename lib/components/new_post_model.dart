@@ -52,32 +52,49 @@ class NewPostModel extends StatelessWidget {
             height: 16,
           ),
           Consumer<PostProvider>(
-            builder: (context, value, child) => GestureDetector(
-              onTap: () {
-                context.read<PostProvider>().pickImage(ImageSource.gallery);
-              },
-              child: Container(
-                height: 200,
-                width: 200,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.white,
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(16),
-                  ),
-                ),
-                child: value.imagePath == null
-                    ? Center(
-                        child: Text('Upload from Gallery'),
-                      )
-                    : Image.file(
-                        File(value.imagePath!),
+              builder: (context, value, child) => GestureDetector(
+                    onTap: () {
+                      context
+                          .read<PostProvider>()
+                          .pickImage(ImageSource.gallery);
+                    },
+                    child: Container(
+                      height: 200,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 2,
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(16),
+                        ),
                       ),
-              ),
-            ),
-          ),
+                      child: value.imagePath == null
+                          ? Center(
+                              child: Text('Upload from Gallery'),
+                            )
+                          : ClipRRect(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(16)),
+                              child: Stack(
+                                children: [
+                                  Image.file(
+                                    File(value.imagePath!),
+                                  ),
+                                  IconButton(
+                                      onPressed: () {
+                                        value.deleteImage();
+                                      },
+                                      icon: Icon(
+                                        Icons.delete_rounded,
+                                        color: Colors.red,
+                                      ))
+                                ],
+                              ),
+                            ),
+                    ),
+                  )),
           SizedBox(
             height: 16,
           ),
