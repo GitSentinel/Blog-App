@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class AppRepo extends ChangeNotifier {
   String? _token;
   User? user;
+  WebSocketChannel? _channel;
 
   set token(String? value) {
     _token = value;
