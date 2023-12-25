@@ -1,4 +1,3 @@
-import 'package:create_app/data/response/login_response.dart';
 import 'package:create_app/data/service/base_service.dart';
 
 class UploadService extends ServiceBase<String> {

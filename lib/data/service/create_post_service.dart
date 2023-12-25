@@ -1,4 +1,3 @@
-import 'package:create_app/data/model/post.dart';
 import 'package:create_app/data/service/base_service.dart';
 
 class CreatePostService extends ServiceBase<void> {

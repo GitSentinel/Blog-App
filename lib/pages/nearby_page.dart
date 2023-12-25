@@ -2,14 +2,12 @@
 
 import 'package:create_app/components/toolbar.dart';
 import 'package:create_app/components/user_page_item.dart';
-import 'package:create_app/config/app_icons.dart';
 import 'package:create_app/config/app_strings.dart';
 import 'package:create_app/data/model/user.dart';
 import 'package:create_app/provider/user_provider.dart';
 import 'package:create_app/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:provider/provider.dart';
 import 'dart:ui' as ui;
