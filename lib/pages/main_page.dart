@@ -4,6 +4,7 @@ import 'package:create_app/components/bottom_navigation_item.dart';
 import 'package:create_app/components/new_post_model.dart';
 import 'package:create_app/config/app_icons.dart';
 import 'package:create_app/config/app_strings.dart';
+import 'package:create_app/pages/chat_page.dart';
 import 'package:create_app/pages/home_page.dart';
 import 'package:create_app/pages/profile_page.dart';
 import 'package:create_app/styles/app_colors.dart';
@@ -56,9 +57,7 @@ class _MainPageState extends State<MainPage> {
     Center(
       child: Text(AppStrings.add),
     ),
-    Center(
-      child: Text(AppStrings.chat),
-    ),
+    ChatPage(),
     ProfilePage(),
   ];
 }
