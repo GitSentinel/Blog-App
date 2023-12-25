@@ -1,3 +1,5 @@
+import 'location.dart';
+
 class User {
   final int id;
   final String firstname;
@@ -6,6 +8,7 @@ class User {
   final String birthday;
   final String gender;
   final bool? visibleGender;
+  final Location? location;
 
   User(
     this.id,
@@ -15,6 +18,7 @@ class User {
     this.birthday,
     this.gender,
     this.visibleGender,
+    this.location,
   );
 
   factory User.fromJson(Map<String, dynamic> json) => User(
@@ -25,5 +29,6 @@ class User {
         json['birthday'],
         json['gender'],
         json['visibleGender'],
+        json['location'] != null ? Location.fromJson(json['location']) : null,
       );
 }

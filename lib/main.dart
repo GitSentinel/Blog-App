@@ -3,6 +3,7 @@
 import 'package:create_app/config/app_routes.dart';
 import 'package:create_app/provider/app_repo.dart';
 import 'package:create_app/provider/post_provider.dart';
+import 'package:create_app/provider/user_provider.dart';
 import 'package:create_app/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +17,9 @@ void main() {
       ChangeNotifierProvider<PostProvider>(
         create: (context) => PostProvider(),
       ),
+      ChangeNotifierProvider(
+        create: (context) => UserProvider(),
+      )
     ], child: myApp()),
   );
 }
